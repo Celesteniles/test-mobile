@@ -40,10 +40,10 @@ echo colorize("║          TEST RAPIDE - MOBILE MONEY PAYMENT                  
 echo colorize("╚═══════════════════════════════════════════════════════════════╝", 'cyan') . "\n\n";
 
 // Récupérer le montant depuis les arguments ou générer aléatoirement
-$amount = isset($argv[1]) ? (int)$argv[1] : rand(100, 5000);
+$amount = isset($argv[1]) ? (int)$argv[1] : rand(50, 5000);
 
-if ($amount < 100) {
-    echo colorize("❌ Erreur : Le montant minimum est de 100 XAF\n", 'red');
+if ($amount < 50) {
+    echo colorize("❌ Erreur : Le montant minimum est de 50 XAF\n", 'red');
     exit(1);
 }
 
@@ -91,7 +91,7 @@ $service = app(MobileMoneyService::class);
 $externalRef = 'ORDER_' . $order->id . '_' . time();
 
 echo colorize("  → External Ref : $externalRef\n", 'white');
-echo colorize("  → Téléphone    : +242067230202\n", 'white');
+echo colorize("  → Téléphone    : +242053913780\n", 'white');
 echo colorize("  → Appel API en cours...\n\n", 'white');
 
 $startTime = microtime(true);
@@ -101,7 +101,7 @@ try {
         'external_ref' => $externalRef,
         'amount' => $amount,
         'currency' => 'XAF',
-        'payer_phone' => '242067230202',
+        'payer_phone' => '242053913780',
         'description' => "Test paiement $amount XAF - Commande #$orderNumber",
     ]);
 
@@ -131,7 +131,7 @@ try {
             'payment_status' => 'pending',
             'payment_transaction_id' => $data['transaction_id'] ?? null,
             'payment_external_ref' => $data['external_ref'] ?? $externalRef,
-            'payment_phone' => '+242067230202',
+            'payment_phone' => '+242053913780',
         ]);
 
         echo colorize("✓ Base de données mise à jour\n\n", 'green');

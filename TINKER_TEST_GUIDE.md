@@ -108,7 +108,7 @@ $result = $service->collect([
     'external_ref' => $externalRef,
     'amount' => 1000,
     'currency' => 'XAF',
-    'payer_phone' => '+242067230202',  // Remplacez par un vrai numéro
+    'payer_phone' => '+242053913780',  // Remplacez par un vrai numéro
     'description' => 'Test de paiement depuis Tinker',
 ]);
 
@@ -128,7 +128,7 @@ dd($result);
         "external_ref" => "TINKER_TEST_1234567890",
         "payment_url" => "https://gateway.example.com/checkout/...",
         "operator" => "MTN",
-        "payer_phone" => "+242067230202",
+        "payer_phone" => "+242053913780",
     ],
     "message" => "Transaction initiated successfully",
     "status_code" => 201,
@@ -162,7 +162,7 @@ dd($result);
         "status" => "SUCCESS",  // ou "PENDING", "FAILED", "EXPIRED"
         "amount" => 1000.0,
         "currency" => "XAF",
-        "payer_phone" => "+242067230202",
+        "payer_phone" => "+242053913780",
         "operator" => "MTN",
         "description" => "Test de paiement depuis Tinker",
         "response_code" => "00",
@@ -199,7 +199,7 @@ $result = $service->collect([
     'external_ref' => $externalRef,
     'amount' => $order->total_amount,
     'currency' => $order->currency,
-    'payer_phone' => '+242067230202',
+    'payer_phone' => '+242053913780',
     'description' => 'Paiement commande #' . $order->order_number,
 ]);
 
@@ -211,7 +211,7 @@ if ($result['success']) {
         'payment_status' => 'pending',
         'payment_transaction_id' => $result['data']['transaction_id'] ?? null,
         'payment_external_ref' => $result['data']['external_ref'] ?? $externalRef,
-        'payment_phone' => '+242067230202',
+        'payment_phone' => '+242053913780',
     ]);
 
     echo "Commande mise à jour\n";
@@ -237,7 +237,7 @@ $callbackData = [
     'amount' => 2500,
     'currency' => 'XAF',
     'operator' => 'MTN',
-    'payer_phone' => '+242067230202',
+    'payer_phone' => '+242053913780',
     'response_code' => '00',
     'transaction_time' => now()->toIso8601String(),
 ];
@@ -416,7 +416,7 @@ $result = $service->collect([
     'external_ref' => $externalRef,
     'amount' => $order->total_amount,
     'currency' => $order->currency,
-    'payer_phone' => '+242067230202',
+    'payer_phone' => '+242053913780',
     'description' => 'Test Tinker',
 ]);
 
